@@ -2,7 +2,7 @@ package com.shrvn.chapterone.creativity;
 
 import java.util.Arrays;
 
-public class creativity1 {
+public class creativity15 {
     public static void main(String[] args) {
         int [] i = {1,2,3,4,5,6,7,8,9};
         reverse(i);
