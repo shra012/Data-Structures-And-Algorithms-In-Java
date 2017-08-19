@@ -1,6 +1,6 @@
-package com.shrvn.chapterone;
+package com.shrvn.chapterone.reinforcement;
 
-import com.shrvn.chapterone.pojos.CreditCard;
+import com.shrvn.chapterone.reinforcement.pojos.CreditCard;
 
 public class Reinforcement13 {
     public static void main(String[] args) {

@@ -1,6 +1,6 @@
-package com.shrvn.chapterone;
+package com.shrvn.chapterone.reinforcement;
 
-import com.shrvn.chapterone.pojos.CreditCard;
+import com.shrvn.chapterone.reinforcement.pojos.CreditCard;
 
 import java.util.Currency;
 import java.util.Locale;

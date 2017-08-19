@@ -1,6 +1,6 @@
-package com.shrvn.chapterone;
+package com.shrvn.chapterone.reinforcement;
 
-import com.shrvn.chapterone.pojos.Flower;
+import com.shrvn.chapterone.reinforcement.pojos.Flower;
 
 public class Reinforcement10 {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package com.shrvn.chapterone.pojos;
+package com.shrvn.chapterone.reinforcement.pojos;
 
 public class GameEntry {
     private int scores;

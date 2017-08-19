@@ -1,6 +1,6 @@
-package com.shrvn.chapterone;
+package com.shrvn.chapterone.reinforcement;
 
-import com.shrvn.chapterone.pojos.GameEntry;
+import com.shrvn.chapterone.reinforcement.pojos.GameEntry;
 
 public class Reinforcement2 {
     public static void main(String[] args) {

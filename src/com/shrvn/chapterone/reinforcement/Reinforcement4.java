@@ -1,4 +1,4 @@
-package com.shrvn.chapterone;
+package com.shrvn.chapterone.reinforcement;
 
 import java.util.Scanner;
 
