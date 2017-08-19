@@ -41,13 +41,16 @@ public class CreditCard {
         return balance;
     }
 
-    public boolean charge(double price) {
+        public boolean charge(double price) {
+        if(price>0) {
+            if (price + balance > limit)
+                return false;
 
-        if (price + balance > limit)
-        return false;
-
-        balance += price;
-        return true;
+            balance += price;
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public void makePayment(double amount) {
@@ -62,4 +65,13 @@ public class CreditCard {
         System.out.println("Balance = " + card.balance);
         System.out.println("Limit = " + card.limit);
     }
+
+    public void updateCreditCardLimit(int limit){
+        this.limit=limit;
+    }
+
+    public void addCreditCardLimit(int limit){
+        this.limit=this.limit+limit;
+    }
+
 }
