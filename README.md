@@ -8,13 +8,17 @@ https://resources.jetbrains.com/storage/products/intellij-idea/docs/IntelliJIDEA
 
 ### IntelliJ Windows IDEA Shortcuts
 
-* Ctrl+N    -> to open any class in the editor
+* Ctrl+N    -> Go to class
 * Alt+F7    -> Call Hierarchy
-* Ctrl+Q    -> Method Usage Helper
 * Ctrl+F12  -> Class Hierarchy
+* Ctrl+Q    -> Quick documentation lookup
 * Shift+F6  -> Rename all variable in one go
 * Alt+F8    -> Evaluate
 
 ### IntelliJ Mac IDEA Shortcuts
-
-* option+f7 -> Call Heirachy
+* cmd+O       -> Go to class
+* option+f7   -> Call Heirachy
+* cmd+f12     -> Class Hierarchy
+* control+J   -> Quick documentation lookup
+* cmd+N       -> Generate
+* option+f8   -> Evaluate
