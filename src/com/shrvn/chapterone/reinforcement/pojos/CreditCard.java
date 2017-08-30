@@ -58,7 +58,7 @@ public class CreditCard {
         balance -= amount;
     }
 
-    public void printSummary(CreditCard card) {
+    public static void printSummary(CreditCard card) {
         System.out.println("Customer = " + card.customer);
         System.out.println("Bank = " + card.bank);
         System.out.println("Account = " + card.account);
