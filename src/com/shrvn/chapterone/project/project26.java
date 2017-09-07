@@ -7,7 +7,7 @@ public class project26 {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number of lines");
         // didnt you sc.nextInt() because when you read sc.nextLine() after sc.nextInt()
-        // it would return and ""(Empty String) to denote the rest of the line.
+        // it would return a "" (Empty String) to denote the rest of the line.
         int n = Integer.parseInt(sc.nextLine());
         String array[] = new String[n];
         System.out.println("Enter the lines");
