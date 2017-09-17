@@ -2,7 +2,7 @@ package com.shrvn.chapterone.project;
 
 import java.util.Scanner;
 
-public class project26 {
+public class Project26 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number of lines");
