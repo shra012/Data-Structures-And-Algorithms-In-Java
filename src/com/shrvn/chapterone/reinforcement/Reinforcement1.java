@@ -30,6 +30,7 @@ public class Reinforcement1 {
                 default:
                     System.out.println("Please enter a valid input");
             }
+            sc.close();
         }catch (Exception exception){
             if(exception.getClass().getName().contains("java.util.InputMismatchException")){
                 System.out.println("Entered value and data type does not match each other");
