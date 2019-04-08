@@ -32,29 +32,53 @@ public class CircularlyLinkedList<E> {
 
 	// ----------- end of nested Node class -----------//
 
-	public CircularlyLinkedList( ) { }  // constructs an initially empty list
-	public int size( ) { return size; } 
+	public CircularlyLinkedList(	) { }  // constructs an initially empty list
+	public int size() { return size; } 
 	public boolean isEmpty( ) { return size == 0; }
 
-	public E first() {
+	public E first() {// returns (but does not remove) the first element
 		if(isEmpty()) return null;
 		return tail.getNext().getElement();
 	}
 
-	public E last( ) { // returns (but does not remove) the last element
-		if (isEmpty( )) return null;
-		return tail.getElement( );
+	public E last() { // returns (but does not remove) the last element
+		if (isEmpty()) return null;
+		return tail.getElement();
 	}
 
 	public void addFirst(E element) {
 		Node<E> node = new Node<E>(element,null);
-
 		if(isEmpty()) {
 			tail = node;
-			node.setNext(node);
-			return;
+			tail.setNext(tail);
+		}else {
+			node = new Node<E>(element,tail.getNext());
+			tail.setNext(node);
 		}
-		node.setNext(tail.getNext());
-		tail.setNext(node);
+		size++;
 	}
+
+	public void addLast(E element) {
+		addFirst(element);
+		tail = tail.getNext();
+	}
+	
+	
+	public E removeFirst() {
+		Node<E> head = null;
+		if(isEmpty()) {
+			return null;
+		}
+		head = tail.getNext();
+		tail.setNext(tail.getNext().getNext());
+		size--;
+		return head.getElement();
+	}
+	
+	public void rotate() {
+		if(isEmpty()) return;
+		tail = tail.getNext();
+	}
+
+
 }
