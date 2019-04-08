@@ -79,6 +79,4 @@ public class CircularlyLinkedList<E> {
 		if(isEmpty()) return;
 		tail = tail.getNext();
 	}
-
-
 }
