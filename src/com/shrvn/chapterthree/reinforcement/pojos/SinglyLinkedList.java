@@ -2,7 +2,7 @@ package com.shrvn.chapterthree.reinforcement.pojos;
 
 public class SinglyLinkedList<E> implements Cloneable {
 	// ---------------- nested Node class ---------------//
-	private static class Node<E> {
+	public static class Node<E> {
 		private E element;                     // reference to the element stored at this node
 		private Node<E> next;                  // reference to the subsequent node in the list
 
@@ -38,6 +38,10 @@ public class SinglyLinkedList<E> implements Cloneable {
 
 	public SinglyLinkedList() {
 		// constructs an initially empty list
+	}
+	// returns head node of the list (or null if empty)
+	public Node<E> getHead() {
+		return head;
 	}
 
 	public int size() {
@@ -128,6 +132,7 @@ public class SinglyLinkedList<E> implements Cloneable {
 	@SafeVarargs // Added safe variable arguments to avoid heap pollution Refer https://softwareengineering.stackexchange.com/questions/155994/java-heap-pollution.
 	public static <E> SinglyLinkedList<E> createList(E... args){
 		SinglyLinkedList<E> list = new SinglyLinkedList<E>();
+		if(null==args) return list;
 		for(E arg : args){
 			list.addLast(arg);
 		}

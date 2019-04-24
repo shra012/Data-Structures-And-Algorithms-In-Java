@@ -1,8 +1,10 @@
 package com.shrvn.chapterthree.reinforcement.pojos;
 
+import com.shrvn.chapterthree.reinforcement.pojos.SinglyLinkedList.Node;
+
 public class DoublyLinkedList<E> {
 	// ---------------- nested Node class ---------------//
-	private static class Node<E> {
+	public static class Node<E> {
 		private E element; // reference to the element stored at this node
 		private Node<E> next; // reference to the subsequent node in the list
 		private Node<E> prev; // reference to the previous node in the list
@@ -49,6 +51,10 @@ public class DoublyLinkedList<E> {
 		header = new Node<E>(null, null, null);
 		trailer = new Node<E>(null, header, null);
 		header.setNext(trailer);
+	}
+	/** returns header sentinel node of the list (or null if empty). */
+	public Node<E> getHeader() {
+		return header;
 	}
 
 	/** Returns the number of elements in the linked list. */
@@ -114,6 +120,16 @@ public class DoublyLinkedList<E> {
 		successor.setPrev(predecessor);
 		size--;
 		return node.getElement();
+	}
+	
+	@SafeVarargs // Added safe variable arguments to avoid heap pollution Refer https://softwareengineering.stackexchange.com/questions/155994/java-heap-pollution.
+	public static <E> DoublyLinkedList<E> createList(E... args){
+		DoublyLinkedList<E> list = new DoublyLinkedList<E>();
+		if(null==args) return list;
+		for(E arg : args){
+			list.addLast(arg);
+		}
+		return list;
 	}
 
 }
