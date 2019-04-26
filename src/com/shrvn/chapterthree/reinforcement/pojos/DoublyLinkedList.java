@@ -1,7 +1,5 @@
 package com.shrvn.chapterthree.reinforcement.pojos;
 
-import com.shrvn.chapterthree.reinforcement.pojos.SinglyLinkedList.Node;
-
 public class DoublyLinkedList<E> {
 	// ---------------- nested Node class ---------------//
 	public static class Node<E> {

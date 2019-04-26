@@ -38,6 +38,8 @@ public class CircularlyLinkedList<E> {
 	
 	/** returns first node of the list (or null if empty). */
 	public Node<E> getHead() {
+		if(tail==null) return null;
+		
 		return tail.getNext();
 	}
 
@@ -89,6 +91,16 @@ public class CircularlyLinkedList<E> {
 	@SafeVarargs // Added safe variable arguments to avoid heap pollution Refer https://softwareengineering.stackexchange.com/questions/155994/java-heap-pollution.
 	public static <E> CircularlyLinkedList<E> createDoublyList(E... args){
 		CircularlyLinkedList<E> list = new CircularlyLinkedList<E>();
+		for(E arg : args){
+			list.addLast(arg);
+		}
+		return list;
+	}
+	
+	@SafeVarargs // Added safe variable arguments to avoid heap pollution Refer https://softwareengineering.stackexchange.com/questions/155994/java-heap-pollution.
+	public static <E> CircularlyLinkedList<E> createList(E... args){
+		CircularlyLinkedList<E> list = new CircularlyLinkedList<E>();
+		if(null==args) return list;
 		for(E arg : args){
 			list.addLast(arg);
 		}
