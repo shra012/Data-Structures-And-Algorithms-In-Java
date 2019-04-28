@@ -2,7 +2,7 @@ package com.shrvn.chapterthree.reinforcement.pojos;
 
 public class DoublyLinkedList<E> {
 	// ---------------- nested Node class ---------------//
-	public static class Node<E> {
+	private static class Node<E> {
 		private E element; // reference to the element stored at this node
 		private Node<E> next; // reference to the subsequent node in the list
 		private Node<E> prev; // reference to the previous node in the list
@@ -50,10 +50,11 @@ public class DoublyLinkedList<E> {
 		trailer = new Node<E>(null, header, null);
 		header.setNext(trailer);
 	}
-	/** returns header sentinel node of the list (or null if empty). */
-	public Node<E> getHeader() {
-		return header;
-	}
+	/** Returns the header node of  the linked list. */
+	public Node<E> getHeader(){ return header; }
+
+	/** Returns the header node of  the linked list. */
+	public Node<E> getTrailer(){ return trailer; }
 
 	/** Returns the number of elements in the linked list. */
 	public int size() {
@@ -119,7 +120,7 @@ public class DoublyLinkedList<E> {
 		size--;
 		return node.getElement();
 	}
-	
+
 	@SafeVarargs // Added safe variable arguments to avoid heap pollution Refer https://softwareengineering.stackexchange.com/questions/155994/java-heap-pollution.
 	public static <E> DoublyLinkedList<E> createList(E... args){
 		DoublyLinkedList<E> list = new DoublyLinkedList<E>();
@@ -128,6 +129,21 @@ public class DoublyLinkedList<E> {
 			list.addLast(arg);
 		}
 		return list;
+	}
+
+	public E hopperMidNode(){
+		if(header.getNext()==null) return null;
+		if(header.getNext().getNext()==null) return header.getNext().getElement();
+
+		Node<E> fastPointer = header.getNext().getNext();
+		Node<E> slowPointer = header.getNext();
+
+		while(fastPointer!=null && fastPointer.getNext()!=null){
+			fastPointer = fastPointer.getNext().getNext();
+			slowPointer = slowPointer.getNext();
+		}
+
+		return slowPointer.getElement();
 	}
 
 }

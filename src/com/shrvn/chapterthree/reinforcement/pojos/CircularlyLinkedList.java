@@ -4,7 +4,7 @@ public class CircularlyLinkedList<E> {
 	private Node<E> tail = null; // we store tail (but not head)
 	private int size = 0; // number of nodes in the list
 	// ---------------- nested Node class ---------------//
-	public static class Node<E> {
+	private static class Node<E> {
 		private E element;                     // reference to the element stored at this node
 		private Node<E> next;                  // reference to the subsequent node in the list
 
@@ -35,11 +35,11 @@ public class CircularlyLinkedList<E> {
 	public CircularlyLinkedList(	) { }  // constructs an initially empty list
 	public int size() { return size; } 
 	public boolean isEmpty( ) { return size == 0; }
-	
+
 	/** returns first node of the list (or null if empty). */
 	public Node<E> getHead() {
 		if(tail==null) return null;
-		
+
 		return tail.getNext();
 	}
 
@@ -86,7 +86,7 @@ public class CircularlyLinkedList<E> {
 		if(isEmpty()) return;
 		tail = tail.getNext();
 	}
-	
+
 	/* Method for creating the Linked List */
 	@SafeVarargs // Added safe variable arguments to avoid heap pollution Refer https://softwareengineering.stackexchange.com/questions/155994/java-heap-pollution.
 	public static <E> CircularlyLinkedList<E> createDoublyList(E... args){
@@ -96,7 +96,7 @@ public class CircularlyLinkedList<E> {
 		}
 		return list;
 	}
-	
+
 	@SafeVarargs // Added safe variable arguments to avoid heap pollution Refer https://softwareengineering.stackexchange.com/questions/155994/java-heap-pollution.
 	public static <E> CircularlyLinkedList<E> createList(E... args){
 		CircularlyLinkedList<E> list = new CircularlyLinkedList<E>();
