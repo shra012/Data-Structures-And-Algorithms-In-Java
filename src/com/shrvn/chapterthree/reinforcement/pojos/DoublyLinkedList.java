@@ -2,7 +2,7 @@ package com.shrvn.chapterthree.reinforcement.pojos;
 
 public class DoublyLinkedList<E> {
 	// ---------------- nested Node class ---------------//
-	private static class Node<E> {
+	public static class Node<E> {
 		private E element; // reference to the element stored at this node
 		private Node<E> next; // reference to the subsequent node in the list
 		private Node<E> prev; // reference to the previous node in the list
