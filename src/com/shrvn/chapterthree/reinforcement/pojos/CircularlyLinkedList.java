@@ -69,8 +69,8 @@ public class CircularlyLinkedList<E> {
 		addFirst(element);
 		tail = tail.getNext();
 	}
-	
-	
+
+
 	public E removeFirst() {
 		Node<E> head = null;
 		if(isEmpty()) {
@@ -81,22 +81,20 @@ public class CircularlyLinkedList<E> {
 		size--;
 		return head.getElement();
 	}
-	
+
 	public void rotate() {
 		if(isEmpty()) return;
 		tail = tail.getNext();
 	}
 
-	/* Method for creating the Linked List */
-	@SafeVarargs // Added safe variable arguments to avoid heap pollution Refer https://softwareengineering.stackexchange.com/questions/155994/java-heap-pollution.
-	public static <E> CircularlyLinkedList<E> createDoublyList(E... args){
-		CircularlyLinkedList<E> list = new CircularlyLinkedList<E>();
-		for(E arg : args){
-			list.addLast(arg);
-		}
-		return list;
-	}
 
+	/**
+	 * Builder method to build the circularly linked list. If null argument is passed it will neglect the values
+	 * and avoid adding them to the list.
+	 * @param <E> The type of the circularly linked list.
+	 * @param args the values of type <E> to be stored in the list.
+	 * @return a newly created {@code CircularlyLinkedList}. 
+	 */
 	@SafeVarargs // Added safe variable arguments to avoid heap pollution Refer https://softwareengineering.stackexchange.com/questions/155994/java-heap-pollution.
 	public static <E> CircularlyLinkedList<E> createList(E... args){
 		CircularlyLinkedList<E> list = new CircularlyLinkedList<E>();
@@ -105,5 +103,20 @@ public class CircularlyLinkedList<E> {
 			list.addLast(arg);
 		}
 		return list;
+	}
+
+	public  int getCurrentSize() {
+		Node<E> head = null;
+		if(isEmpty()) {
+			return 0;
+		}
+		head = tail.getNext();
+		Node<E> temp = tail.getNext();
+		int counter = 1;
+		while(!temp.getNext().equals(head)) {
+			temp = temp.getNext();
+			counter++;
+		}
+		return counter;
 	}
 }
