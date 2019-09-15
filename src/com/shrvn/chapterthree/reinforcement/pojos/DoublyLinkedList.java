@@ -145,5 +145,20 @@ public class DoublyLinkedList<E> {
 
 		return slowPointer.getElement();
 	}
+	
+	public  int getCurrentSize() {
+		
+		Node<E> first = null;
+		if(isEmpty()) {
+			return 0;
+		}
+		first = header.getNext();
+		int counter = 1;
+		while(!first.getNext().equals(trailer)) {
+			first = first.getNext();
+			counter++;
+		}
+		return counter;
+	}
 
 }
