@@ -25,7 +25,7 @@ public class SinglyLinkedList<E> implements Cloneable {
 		@Override
 		public String toString() {
 			return (element!=null)?element.toString():"";
-			
+
 		}
 	}
 
@@ -128,7 +128,7 @@ public class SinglyLinkedList<E> implements Cloneable {
 		if (size == 0)
 			tail = null; return answer;
 	}
-	
+
 	@SafeVarargs // Added safe variable arguments to avoid heap pollution Refer https://softwareengineering.stackexchange.com/questions/155994/java-heap-pollution.
 	public static <E> SinglyLinkedList<E> createList(E... args){
 		SinglyLinkedList<E> list = new SinglyLinkedList<E>();
@@ -138,7 +138,7 @@ public class SinglyLinkedList<E> implements Cloneable {
 		}
 		return list;
 	}
-	
+
 	/**
 	 * Get the second to last element of a linkedlist
 	 */
@@ -149,6 +149,31 @@ public class SinglyLinkedList<E> implements Cloneable {
 			current=current.getNext();
 		}
 		return current;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder sb =  new StringBuilder("SinglyLinkedList [");
+		Node<E> current = head;
+		while(current!=null) {
+			sb.append(current);
+			current=current.getNext();
+			sb.append(" --> ");
+		}
+		sb.append("null]");
+		return sb.toString();
+	}
+	/**
+	 * This method rotates all the nodes one by one till the node in the given position becomes the first node.
+	 * @param position The node where the rotation should stop.
+	 * @return
+	 */
+	public void rotate(int position) {
+		if(isEmpty()) return;
+		while(position>0) {
+			addLast(removeFirst());
+			position--;
+		}
 	}
 }
 
